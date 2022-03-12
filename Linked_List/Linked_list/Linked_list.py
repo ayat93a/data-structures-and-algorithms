@@ -69,6 +69,8 @@ class LinkedList:
             # try to remove the first element in the list 'head'
             self.head = self.head.next
             return
+
+            
         
         count = 0
         itr = self.head
