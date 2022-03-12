@@ -69,6 +69,8 @@ class LinkedList:
             # try to remove the first element in the list 'head'
             self.head = self.head.next
             return
+
+            
         
         count = 0
         itr = self.head
@@ -80,6 +82,7 @@ class LinkedList:
 
             itr = itr.next
             count +=1
+        return    
         
 # insert a value at a definded location 
     def insert_at(self , index , value):
@@ -116,11 +119,11 @@ class LinkedList:
                     itr =  self.head
                     while itr:
                         if itr.value == value:
-                            return 'true'
+                            return True
 
                         itr = itr.next
                     
-                    return 'false'
+                    return False
                 
                 except TypeError: 
 
@@ -188,23 +191,44 @@ class LinkedList:
 
 if __name__== "__main__":
     ll=  LinkedList()
-    # ll.insert_values(['ayat' , 'barakat' , 'alkayed' ])
+    # ll.insert_at_beginning(['engineer' , 1])
+    # ll.insert_at_beginning('civil')
+    # ll.insert_at_beginning('ayat')
+    # ll.insert_at_beginning('python')
+    # ll.remove_at_index(2)
+    ll = LinkedList()
+    # ll.insert_at_beginning([1000 , 1])
+    # ll.insert_at_beginning('civil')
+    # ll.insert_at_beginning('ayat')
+    # ll.insert_at_beginning('python')
+    # ll.insert_at(0, 'a')
+    ll.insert_at_beginning([1000 , 1])
+    ll.insert_at_beginning('civil')
+    ll.insert_at_beginning('ayat')
+    ll.insert_at_beginning('python')
+    # ll.insert_after_value('civil' , '5')
+    ll.remove_by_value('civil')
+    print(ll.__str__())
+    # ll.insert_values('a')
     # ll.insert_at_beginning('engineer')
     # ll.insert_at_beginning('civil')
-    ll = "{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"
-    print(ll.get_length())
+    # print(ll.__str__())
+    # ll = ['ayat' , 'barakat' , 'alkayed' ]
+    # ll.get_length()
     # print(ll.__str__())
     # ll.insert_at_beginning(93)
     # ll.insert_at_beginning(28)
     # ll.insert_at_beginning(8)
     # ll.__str__()
-    # # tyr to insert the date
+    # # # tyr to insert the date
     # ll.insert_at_end('end')
     # ll.insert_at_end('ayat')
     # ll.__str__()
     # print('length : ' , ll.get_length())
-    # ll.__str__()
+    # ll.remove_at_index(2)
+    # print(ll.__str__())
     # ll.remove_at_index(3)
+    # print(ll.__str__())
     # ll.__str__()
     # ll.insert_at(0 ,"hi")
     # ll.__str__()
