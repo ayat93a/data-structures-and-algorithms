@@ -27,7 +27,7 @@ Methods i used to create and edit linked list :
    - includes --> to find if element is exist or not : return true if available or false if not
    - insert_after_value --> find a spicific value --> determain the location of it --> insert a given value after it
    - remove_by_value --> find a spicific value --> determain the location of it --> remove it 
-   __str__
+   - __str__ 
 
 
 - [linked list - code](./linked_list.py)
