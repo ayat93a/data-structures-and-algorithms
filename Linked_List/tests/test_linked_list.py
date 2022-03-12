@@ -33,14 +33,19 @@ def test_insert_at_end():
     expected = '"{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"'
     assert actual == expected
 
-# def test_get_length():
-#     ll = ['ayat' , 'barakat' , 'alkayed'  ]
-#     actual =ll.get_length()
-#     expected = 3
-#     assert actual == expected
+def test_get_length():
+    ll = LinkedList()
+    ll.insert_at_beginning(['engineer' , 1])
+    ll.insert_at_beginning('civil')
+    ll.insert_at_beginning('ayat')
+    ll.insert_at_beginning('python')
+    actual =ll.get_length()
+    expected = 4
+    assert actual == expected
 
 def test_includes():
-    ll = ['ayat' , 'barakat' , 'alkayed' ]
+    ll = LinkedList()
+    ll.insert_values (['ayat' , 'barakat' , 'alkayed' ])
     actual = ll.includes('ayat')
     expected = True
     assert actual == expected

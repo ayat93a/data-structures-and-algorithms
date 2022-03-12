@@ -116,11 +116,11 @@ class LinkedList:
                     itr =  self.head
                     while itr:
                         if itr.value == value:
-                            return 'true'
+                            return True
 
                         itr = itr.next
                     
-                    return 'false'
+                    return False
                 
                 except TypeError: 
 
@@ -188,21 +188,21 @@ class LinkedList:
 
 if __name__== "__main__":
     ll=  LinkedList()
-    # ll.insert_values(['ayat' , 'barakat' , 'alkayed' ])
-    # ll.insert_at_beginning('engineer')
-    # ll.insert_at_beginning('civil')
-    ll = "{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"
-    print(ll.get_length())
-    # print(ll.__str__())
-    # ll.insert_at_beginning(93)
-    # ll.insert_at_beginning(28)
-    # ll.insert_at_beginning(8)
-    # ll.__str__()
+    ll.insert_values('a')
+    ll.insert_at_beginning('engineer')
+    ll.insert_at_beginning('civil')
+    # ll = ['ayat' , 'barakat' , 'alkayed' ]
+    # ll.get_length()
+    print(ll.__str__())
+    ll.insert_at_beginning(93)
+    ll.insert_at_beginning(28)
+    ll.insert_at_beginning(8)
+    ll.__str__()
     # # tyr to insert the date
-    # ll.insert_at_end('end')
-    # ll.insert_at_end('ayat')
-    # ll.__str__()
-    # print('length : ' , ll.get_length())
+    ll.insert_at_end('end')
+    ll.insert_at_end('ayat')
+    ll.__str__()
+    print('length : ' , ll.get_length())
     # ll.__str__()
     # ll.remove_at_index(3)
     # ll.__str__()
