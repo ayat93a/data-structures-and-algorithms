@@ -23,6 +23,7 @@ class LinkedList:
 
         for value in value_list:
             self.insert_at_end(value)
+        return
 
 # <<<< TASK REQUIREMENT 
 # insert at beginning of array --> insert the first element'head'
@@ -33,7 +34,7 @@ class LinkedList:
 
         node = Node(value , self.head)
         self.head=node
-        
+        return
 
 # insert at end 'append'
     def insert_at_end(self,value):
@@ -45,7 +46,7 @@ class LinkedList:
         while itr.next: 
             itr = itr.next 
         itr.next = Node(value,None)
-
+        return
 
 
 
@@ -97,7 +98,7 @@ class LinkedList:
                 break
             itr = itr.next
             count+=1
-
+        return
 
 # <<<< TASK REQUIREMENT 
 # search about the first occurance of a specific value
@@ -115,11 +116,11 @@ class LinkedList:
                     itr =  self.head
                     while itr:
                         if itr.value == value:
-                            return True
+                            return 'true'
 
                         itr = itr.next
                     
-                    return False
+                    return 'false'
                 
                 except TypeError: 
 
@@ -139,6 +140,7 @@ class LinkedList:
             if itr.value == value_after:
                 itr.next=Node(value_to_insert , itr.next)
             itr = itr.next
+        return
 
         # how to handle the case that when the give value_after is not exist?
         
@@ -160,9 +162,12 @@ class LinkedList:
                 itr=itr.next.next
                 break
             itr= itr.next
-
+        return
 
 # <<<< TASK REQUIREMENT 
+
+    def __repr__(self) :
+        return self.__repr__()
 
     def __str__(self):
         if self.head is None:
@@ -176,33 +181,40 @@ class LinkedList:
             llstr= llstr + '{' +str(itr.value)+ '}' +'-> ' 
             itr=itr.next
         llstr+='NULL"'
-        print (llstr)
+        return llstr 
 
 
 
 
 if __name__== "__main__":
     ll=  LinkedList()
-    ll.insert_values(['ayat' , 'barakat' , 'alkayed' , '28' , 'civil' , 'engineer' ])
-    ll.insert_at_beginning(93)
-    ll.insert_at_beginning(28)
-    ll.insert_at_beginning(8)
-    ll.__str__()
-    # tyr to insert the date
-    ll.insert_at_end('end')
-    ll.insert_at_end('ayat')
-    ll.__str__()
-    print('length : ' , ll.get_length())
-    ll.__str__()
-    ll.remove_at_index(3)
-    ll.__str__()
-    ll.insert_at(0 ,"hi")
-    ll.__str__()
-    print(ll.includes(5))
-    ll.__str__()
-    ll.insert_after_value(15 , 'i am here')
-    ll.__str__()
-    ll.insert_after_value('hi' , 'barakat is my lovely dad')
-    ll.__str__()
-    ll.remove_by_value('hi')
-    ll.__str__()
+    # ll.insert_values(['ayat' , 'barakat' , 'alkayed' ])
+    # ll.insert_at_beginning('engineer')
+    # ll.insert_at_beginning('civil')
+    ll = "{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"
+    print(ll.get_length())
+    # print(ll.__str__())
+    # ll.insert_at_beginning(93)
+    # ll.insert_at_beginning(28)
+    # ll.insert_at_beginning(8)
+    # ll.__str__()
+    # # tyr to insert the date
+    # ll.insert_at_end('end')
+    # ll.insert_at_end('ayat')
+    # ll.__str__()
+    # print('length : ' , ll.get_length())
+    # ll.__str__()
+    # ll.remove_at_index(3)
+    # ll.__str__()
+    # ll.insert_at(0 ,"hi")
+    # ll.__str__()
+    # print(ll.includes(5))
+    # ll.__str__()
+    # ll.insert_after_value(15 , 'i am here')
+    # ll.__str__()
+    # ll.insert_after_value('hi' , 'barakat is my lovely dad')
+    # ll.__str__()
+    # ll.remove_by_value('hi')
+    # ll.__str__()
+    # ll.insert_values(['ayat' , 'barakat' , 'alkayed'])
+    # ll.__str__()
