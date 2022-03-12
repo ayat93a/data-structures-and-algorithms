@@ -18,16 +18,16 @@ Big O for diferent methods applied to Linked List
 
 ## API
 Methods i used to create and edit linked list :
-   insert_values --> insert to empty array 
-   insert_at_beginning --> insert to head
-   insert_at_end --> appened 
-   get_length --> length of list
-   remove_at_index --> remove element at a given index 
-   insert_at --> insert element at a given index 
-   includes --> to find if element is exist or not : return true if available or false if not
-   insert_after_value --> find a spicific value --> determain the location of it --> insert a given value after it
-   remove_by_value --> find a spicific value --> determain the location of it --> remove it 
-   __str__
+   - insert_values --> insert to empty array 
+   - insert_at_beginning --> insert to head
+   - insert_at_end --> appened 
+   - get_length --> length of list
+   - remove_at_index --> remove element at a given index 
+   - insert_at --> insert element at a given index 
+   - includes --> to find if element is exist or not : return true if available or false if not
+   - insert_after_value --> find a spicific value --> determain the location of it --> insert a given value after it
+   - remove_by_value --> find a spicific value --> determain the location of it --> remove it 
+   - __str__ 
 
 
 - [linked list - code](./linked_list.py)
