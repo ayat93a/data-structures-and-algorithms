@@ -12,7 +12,10 @@ class LinkedList:
 
     def __init__(self):
         self.head = None
-
+# create empty list
+    def create_empty_list():
+        ll = LinkedList()
+        return ll
 
 # take a list of value and create a new fresh linked list
     def insert_values(self,value_list):
