@@ -1,5 +1,9 @@
 from Linked_list.Linked_list import LinkedList , Node
-# import pytest
+import pytest
+
+# @pytest.fixure 
+# def ll():
+#         pass
 
 def test_create_empty_list():
     ll = LinkedList()
@@ -25,23 +29,23 @@ def test_insert_at_beginning():
     expected = '"{civil}-> {engineer}-> NULL"'
     assert actual == expected
 
-def test_insert_at_end():
+def test_append():
     ll = LinkedList()
     ll.insert_values(['ayat' , 'barakat' , 'alkayed'  ])
-    ll.insert_at_end('28')
+    ll.append('28')
     actual =ll.__str__()
     expected = '"{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"'
     assert actual == expected
 
-def test_get_length():
-    ll = LinkedList()
-    ll.insert_at_beginning(['engineer' , 1])
-    ll.insert_at_beginning('civil')
-    ll.insert_at_beginning('ayat')
-    ll.insert_at_beginning('python')
-    actual =ll.get_length()
-    expected = 4
-    assert actual == expected
+# def test_get_length():
+#     ll = LinkedList()
+#     ll.insert_at_beginning(['engineer' , 1])
+#     ll.insert_at_beginning('civil')
+#     ll.insert_at_beginning('ayat')
+#     ll.insert_at_beginning('python')
+#     actual =ll.get_length()
+#     expected = 4
+#     assert actual == expected
 
 def test_includest():
     ll = LinkedList()
@@ -57,39 +61,49 @@ def test_includesf():
     expected = False
     assert actual == expected
 
-def test_remove_at_index():
-    ll = LinkedList()
-    ll.insert_at_beginning([1000 , 1])
-    ll.insert_at_beginning('civil')
-    ll.insert_at_beginning('ayat')
-    ll.insert_at_beginning('python')
-    ll.remove_at_index(2)
-    actual = ll.__str__()
-    expected = '"{python}-> {ayat}-> {[1000, 1]}-> NULL"'
-    assert actual == expected
+# def test_remove_at_index():
+#     ll = LinkedList()
+#     ll.insert_at_beginning([1000 , 1])
+#     ll.insert_at_beginning('civil')
+#     ll.insert_at_beginning('ayat')
+#     ll.insert_at_beginning('python')
+#     ll.remove_at_index(2)
+#     actual = ll.__str__()
+#     expected = '"{python}-> {ayat}-> {[1000, 1]}-> NULL"'
+#     assert actual == expected
 
-def test_insert_at():
-    ll = LinkedList()
-    ll.insert_at_beginning([1000 , 1])
-    ll.insert_at_beginning('civil')
-    ll.insert_at_beginning('ayat')
-    ll.insert_at_beginning('python')
-    ll.insert_at(0, 'a')
-    actual = ll.__str__()
-    expected = '"{a}-> {python}-> {ayat}-> {civil}-> {[1000, 1]}-> NULL"'
-    assert actual == expected
+# def test_insert_at():
+#     ll = LinkedList()
+#     ll.insert_at_beginning([1000 , 1])
+#     ll.insert_at_beginning('civil')
+#     ll.insert_at_beginning('ayat')
+#     ll.insert_at_beginning('python')
+#     ll.insert_at(0, 'a')
+#     actual = ll.__str__()
+#     expected = '"{a}-> {python}-> {ayat}-> {civil}-> {[1000, 1]}-> NULL"'
+#     assert actual == expected
 
-def test_insert_after_value():
+def test_insert_after():
     ll = LinkedList()
     ll.insert_at_beginning([1000 , 1])
     ll.insert_at_beginning('civil')
     ll.insert_at_beginning('ayat')
     ll.insert_at_beginning('python')
-    ll.insert_after_value('civil' , '5')
+    ll.insert_after('civil' , '5')
     actual = ll.__str__()
     expected = '"{python}-> {ayat}-> {civil}-> {5}-> {[1000, 1]}-> NULL"'
     assert actual == expected
 
+def test_insert_befor():
+    ll = LinkedList()
+    ll.insert_at_beginning('civil')
+    ll.insert_at_beginning('ayat')
+    ll.insert_at_beginning('python')
+    ll.insert_befor('civil' , 'softwear')
+    ll.insert_befor('ayat' , 'devs')
+    actual = ll.__str__()
+    expected ='"{python}-> {devs}-> {ayat}-> {civil}-> NULL"'
+    assert actual == expected
 
 def test_remove_by_value():
     ll = LinkedList()
