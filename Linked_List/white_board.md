@@ -17,5 +17,5 @@ insert after --> insert element after a given element
 all of these 3 methods have O(n) comlexity in each of time and space
 
 ## Solution
-
+solution for these 3 problems was provided as white board and python file code 
 
