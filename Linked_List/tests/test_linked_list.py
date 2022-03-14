@@ -29,13 +29,7 @@ def test_insert_at_beginning():
     expected = '"{civil}-> {engineer}-> NULL"'
     assert actual == expected
 
-def test_append():
-    ll = LinkedList()
-    ll.insert_values(['ayat' , 'barakat' , 'alkayed'  ])
-    ll.append('28')
-    actual =ll.__str__()
-    expected = '"{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"'
-    assert actual == expected
+
 
 # def test_get_length():
 #     ll = LinkedList()
@@ -83,26 +77,52 @@ def test_includesf():
 #     expected = '"{a}-> {python}-> {ayat}-> {civil}-> {[1000, 1]}-> NULL"'
 #     assert actual == expected
 
+# add a node to the end of the linked list
+def test_append1():
+    ll = LinkedList()
+    ll.insert_values(['ayat' , 'barakat' , 'alkayed'  ])
+    ll.append('28')
+    actual =ll.__str__()
+    expected = '"{ayat}-> {barakat}-> {alkayed}-> {28}-> NULL"'
+    assert actual == expected
+
+# add multiple nodes to the end of a linked list
+def test_append2():
+    ll = LinkedList()
+    ll.insert_values(['ayat' , 'barakat' , 'alkayed'  ])
+    ll.append('28')
+    ll.append('python')
+    ll.append('ASAC')
+    actual =ll.__str__()
+    expected = '"{ayat}-> {barakat}-> {alkayed}-> {28}-> {python}-> {ASAC}-> NULL"'
+    assert actual == expected
+
+# insert after a node in the middle of the linked list
+# insert a node after the last node of the linked list
 def test_insert_after():
     ll = LinkedList()
     ll.insert_at_beginning([1000 , 1])
     ll.insert_at_beginning('civil')
     ll.insert_at_beginning('ayat')
     ll.insert_at_beginning('python')
-    ll.insert_after('civil' , '5')
+    ll.insert_after('ayat' , '5')
+    ll.insert_after([1000 , 1] , 'last')
     actual = ll.__str__()
-    expected = '"{python}-> {ayat}-> {civil}-> {5}-> {[1000, 1]}-> NULL"'
+    expected = '"{python}-> {ayat}-> {5}-> {civil}-> {[1000, 1]}-> {last}-> NULL"'
     assert actual == expected
 
+# insert a node before the first node of a linked list
+# insert a node before the first node of a linked list
 def test_insert_befor():
     ll = LinkedList()
     ll.insert_at_beginning('civil')
     ll.insert_at_beginning('ayat')
     ll.insert_at_beginning('python')
-    ll.insert_befor('civil' , 'softwear')
+    ll.insert_at_beginning(16)
+    ll.insert_befor(16 , 'softwear')
     ll.insert_befor('ayat' , 'devs')
     actual = ll.__str__()
-    expected ='"{python}-> {devs}-> {ayat}-> {civil}-> NULL"'
+    expected = '"{softwear}-> {16}-> {python}-> {ayat}-> {civil}-> NULL"'
     assert actual == expected
 
 def test_remove_by_value():

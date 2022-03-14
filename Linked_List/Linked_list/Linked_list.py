@@ -12,7 +12,6 @@ class Node:
     
 class LinkedList:
 
-
     def __init__(self):
         self.head = None
 # create empty list
@@ -48,7 +47,7 @@ class LinkedList:
         # if itr.next is true that mean that the node is not the last one, when the condition is false --> go out side the loop
         while itr.next: 
             itr = itr.next 
-        itr.next = Node(value,None)
+        itr.next = Node(value,itr.next)
         return
 
 
@@ -160,18 +159,18 @@ class LinkedList:
             return
 
         if self.head.value == value:
-            self.insert_at_beginning()
+            self.insert_at_beginning(new_value)
             return
 
-        current =  self.head
-        while current:
+        itr =  self.head
+        while itr:
             if self.head == None:
                 break
 
-            if current.next.value == value: 
-                node = Node(new_value , current.next)
-                node.next= current.next
-                current.next = node    
+            if itr.next.value == value: 
+                node = Node(new_value , itr.next)
+                node.next= itr.next
+                itr.next = node    
                 return
             else:
                 return (-1)
@@ -222,11 +221,12 @@ class LinkedList:
 
 if __name__== "__main__":
     ll=  LinkedList()
+    ll = LinkedList()
     ll.insert_at_beginning('civil')
     ll.insert_at_beginning('ayat')
     ll.insert_at_beginning('python')
-    ll.insert_befor('civil' , 'softwear')
+    ll.insert_at_beginning(16)
+    ll.insert_befor(16 , 'softwear')
     ll.insert_befor('ayat' , 'devs')
-    actual = ll.__str__()
     ll = ll.__str__()
     print(ll)
