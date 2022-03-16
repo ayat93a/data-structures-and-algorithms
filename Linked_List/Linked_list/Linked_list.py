@@ -59,7 +59,44 @@ class LinkedList:
             itr = itr.next
         return count
 
+# k-th
+    def kElement(self, k ):
+        i = 0
+        current = self.head
+
+        if self.head is None:
+            raise('empty linked list')
+        else:
+            current = current.head
+            i+=1
         
+        if k > i :
+            print('out of range')
+            return
+
+        current = self.head
+        for _ in range(i-k):
+            current = current.next
+
+            return 
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Removing element with a given index 
     def remove_at_index(self , index):
         if index < 0 or index >= self.get_length():
@@ -196,19 +233,19 @@ if __name__== "__main__":
     # ll.insert_at_beginning('ayat')
     # ll.insert_at_beginning('python')
     # ll.remove_at_index(2)
-    ll = LinkedList()
+    # ll = LinkedList()
     # ll.insert_at_beginning([1000 , 1])
     # ll.insert_at_beginning('civil')
     # ll.insert_at_beginning('ayat')
     # ll.insert_at_beginning('python')
     # ll.insert_at(0, 'a')
-    ll.insert_at_beginning([1000 , 1])
-    ll.insert_at_beginning('civil')
-    ll.insert_at_beginning('ayat')
-    ll.insert_at_beginning('python')
-    # ll.insert_after_value('civil' , '5')
-    ll.remove_by_value('civil')
-    print(ll.__str__())
+    # ll.insert_at_beginning([1000 , 1])
+    # ll.insert_at_beginning('civil')
+    # ll.insert_at_beginning('ayat')
+    # ll.insert_at_beginning('python')
+    # # ll.insert_after_value('civil' , '5')
+    # ll.remove_by_value('civil')
+    # print(ll.__str__())
     # ll.insert_values('a')
     # ll.insert_at_beginning('engineer')
     # ll.insert_at_beginning('civil')
@@ -240,5 +277,6 @@ if __name__== "__main__":
     # ll.__str__()
     # ll.remove_by_value('hi')
     # ll.__str__()
-    # ll.insert_values(['ayat' , 'barakat' , 'alkayed'])
+    ll.insert_values(['ayat' , 'barakat' , 'alkayed'])
     # ll.__str__()
+    ll.kElement(2)
