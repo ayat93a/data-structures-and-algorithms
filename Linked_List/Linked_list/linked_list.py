@@ -1,6 +1,9 @@
 
 
 
+from tkinter import N
+
+
 class Node:
 
     def __init__(self, value = None , next =  None):
@@ -13,31 +16,39 @@ class LinkedList:
 
     def __init__(self):
         self.head = None
+
+
 # create empty list
+    @staticmethod
     def create_empty_list():
         ll = LinkedList()
         return ll
 
-# take a list of value and create a new fresh linked list
-    def insert_values(self,value_list):
-        self.head = None
 
+# convert list to linek list
+    def insert_values(self,value_list):
+        
         for value in value_list:
             self.append(value)
-        return
+          
 
-# <<<< TASK REQUIREMENT 
 # insert at beginning of array --> insert the first element'head'
     def insert_at_beginning(self,value):
         #Node(value , self.head) --> value : any value , self.head --> the next node address
+       
         if value == None:
             raise TypeError ('you must give a value to intrest')
+        if self.head is None:
+            self.head = Node(value , None)
+            return
 
         node = Node(value , self.head)
         self.head=node
         return
 
+
 # insert at end 'append'
+ 
     def append(self,value):
         if self.head is None:
             self.head = Node(value,None)
@@ -46,57 +57,39 @@ class LinkedList:
         # if itr.next is true that mean that the node is not the last one, when the condition is false --> go out side the loop
         while itr.next: 
             itr = itr.next 
-        itr.next = Node(value,itr.next)
+        itr.next = Node(value,None)
         return
 
 
 
 # length of the linked list
-    # def get_length(self):
-    #     count = 0
-    #     itr = self.head
-    #     while itr :
-    #         count += 1
-    #         itr = itr.next
-    #     return count
+    def get_length(self):
+        count = 0
+        itr = self.head
+        while itr :
+            count += 1
+            itr = itr.next
+        return count
 
 # k-th
     def kElement(self, k ):
-        i = 0
-        current = self.head
-
+        i = self.get_length()
+        
         if self.head is None:
-            raise('empty linked list')
-        else:
-            current = current.head
-            i+=1
-        
+            raise('empty linked list')  
         if k > i :
-            print('out of range')
-            return
-
-        current = self.head
-        for _ in range(i-k):
-            current = current.next
-
-            return 
+            raise TypeError
         
+        count = 1
+        itr = self.head
+        while itr:
+            if count  == i- k :
+                return itr.value
+            itr = itr.next
+            count +=1
+        return 
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 # Removing element with a given index 
     # def remove_at_index(self , index):
@@ -144,45 +137,55 @@ class LinkedList:
 # <<<< TASK REQUIREMENT 
 # search about the first occurance of a specific value
     def includes (self , value):
-        
-            if self.head is None: 
-                raise Exception ('this is an empty list')
-
-            if value == None:
-                raise TypeError ('you must give a value to intrest')
-
+        if self.head is None:
+            return False
+        if self.head.value == value :
+            return True
+        itr = self.head
+        while itr.next :
+            if itr.next.value == value:
+                return True
             else:
-            # since the count start from 0 --> it also can refered to the index
-                try:
-                    itr =  self.head
-                    while itr:
-                        if itr.value == value:
-                            return True
+                itr = itr.next
+        return False
+# << another way -->
+            # if self.head is None: 
+            #     raise Exception ('this is an empty list')
 
-                        itr = itr.next
+            # if value == None:
+            #     raise TypeError ('you must give a value to intrest')
+
+            # else:
+            # # since the count start from 0 --> it also can refered to the index
+            #     try:
+            #         itr =  self.head
+            #         while itr:
+            #             if itr.value == value:
+            #                 return True
+
+            #             itr = itr.next
                     
-                    return False
+            #         return False
                 
-                except TypeError: 
+            #     except TypeError: 
 
-                    raise ('you must give a value to find it')
+            #         raise ('you must give a value to find it')
                     
-
-
 # first step to find the value to insert after 
 # add a value after that value
 # value --> value to insert afte, new_value--> to insert
     def insert_after(self, value , new_value):
 
-        if self.head == None:
-            return
-
-        itr =  self.head
+        if self.head == None :
+            return 'empty'
+    
+        itr = self.head
         while itr:
             if itr.value == value:
-                itr.next=Node(new_value , itr.next)
+                itr.next= Node(new_value , itr.next)
             itr = itr.next
         return
+
 
         # how to handle the case that when the give value_after is not exist?
 
@@ -190,27 +193,23 @@ class LinkedList:
 # add a value after that value
 
     def insert_befor(self, value , new_value):
-         
-        if self.head == None:
+        if self.head is None:
+            return 'empty'
+        if self.head.value == value :
+            node = Node(new_value , self.head)
+            self.head = node
             return
 
-        if self.head.value == value:
-            self.insert_at_beginning(new_value)
-            return
-
-        itr =  self.head
-        while itr:
-            if self.head == None:
-                break
-
-            if itr.next.value == value: 
+        itr = self.head
+        while itr.next:
+            if itr.next.value == value:
                 node = Node(new_value , itr.next)
-                node.next= itr.next
-                itr.next = node    
+                itr.next = node
                 return
-            else:
-                return (-1)
+            itr = itr.next
+        return
 
+         
     
     def remove_by_value(self,value):
         
@@ -219,15 +218,26 @@ class LinkedList:
 
         if self.head.value == value:
             self.head = self.head.next
-            return
 
-        itr =  self.head
-        while itr:
-            if itr.value == value:
-                itr=itr.next.next
-                break
-            itr= itr.next
-        return
+        itr = self.head
+        while itr.next:
+            if itr.next.value == value:
+                itr.next = itr.next.next
+            else:
+                itr = itr.next
+        return  
+
+
+    def reverse(self):
+        prev = None
+        current = self.head
+        while current :
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+        self.head = prev
+
 
 # <<<< TASK REQUIREMENT 
 
@@ -307,16 +317,19 @@ if __name__== "__main__":
     # ll.__str__()
     # ll.remove_by_value('hi')
     # ll.__str__()
-    ll.insert_values(['ayat' , 'barakat' , 'alkayed'])
-    # ll.__str__()
-    ll.kElement(2)
-    ll = LinkedList()
-    ll.insert_at_beginning('civil')
-    ll.insert_at_beginning('ayat')
-    ll.insert_at_beginning('python')
-    ll.insert_at_beginning(16)
-    ll.insert_befor(16 , 'softwear')
-    ll.insert_befor('ayat' , 'devs')
-    ll = ll.__str__()
+    # ll.insert_values(['ayat' , 'barakat' , 'alkayed'])
+    # # ll.__str__()
+    # # ll.kElement(2)
+    # ll = LinkedList()
+    ll.insert_at_beginning(2)
+    ll.insert_at_beginning(8)
+    ll.insert_at_beginning(3)
+    ll.insert_at_beginning(1)
+    # ll.remove_by_value('civil')
+    # ll.remove_by_value('python')
+
+    print(ll.kElement(6))
     print(ll)
+    # actual = ll.__str__()
+    # print(ll)
 
