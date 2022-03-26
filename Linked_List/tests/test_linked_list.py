@@ -1,4 +1,4 @@
-from Linked_list.Linked_list import LinkedList , Node
+from Linked_list.linked_list import LinkedList 
 import pytest
 
 # @pytest.fixure 
@@ -31,15 +31,15 @@ def test_insert_at_beginning():
 
 
 
-# def test_get_length():
-#     ll = LinkedList()
-#     ll.insert_at_beginning(['engineer' , 1])
-#     ll.insert_at_beginning('civil')
-#     ll.insert_at_beginning('ayat')
-#     ll.insert_at_beginning('python')
-#     actual =ll.get_length()
-#     expected = 4
-#     assert actual == expected
+def test_get_length():
+    ll = LinkedList()
+    ll.insert_at_beginning(['engineer' , 1])
+    ll.insert_at_beginning('civil')
+    ll.insert_at_beginning('ayat')
+    ll.insert_at_beginning('python')
+    actual =ll.get_length()
+    expected = 4
+    assert actual == expected
 
 def test_includest():
     ll = LinkedList()
@@ -122,7 +122,7 @@ def test_insert_befor():
     ll.insert_befor(16 , 'softwear')
     ll.insert_befor('ayat' , 'devs')
     actual = ll.__str__()
-    expected = '"{softwear}-> {16}-> {python}-> {ayat}-> {civil}-> NULL"'
+    expected = '"{softwear}-> {16}-> {python}-> {devs}-> {ayat}-> {civil}-> NULL"'
     assert actual == expected
 
 def test_remove_by_value():
@@ -132,8 +132,20 @@ def test_remove_by_value():
     ll.insert_at_beginning('ayat')
     ll.insert_at_beginning('python')
     ll.remove_by_value('civil')
+    ll.remove_by_value('python')
     actual = ll.__str__()
-    expected = '"{python}-> {ayat}-> {civil}-> {[1000, 1]}-> NULL"'
+    expected = '"{ayat}-> {[1000, 1]}-> NULL"'
     assert actual == expected
+def test_reverse():
+    ll = LinkedList()
+    ll.insert_at_beginning([1000 , 1])
+    ll.insert_at_beginning('civil')
+    ll.insert_at_beginning('ayat')
+    ll.insert_at_beginning('python')
+    ll.insert_at_beginning('hi')
+    ll.reverse()
+    actual = ll.__str__()
+    excepted = '"{[1000, 1]}-> {civil}-> {ayat}-> {python}-> {hi}-> NULL"'
+    assert actual == excepted
 
 #  updated 
