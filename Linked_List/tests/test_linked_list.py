@@ -148,4 +148,35 @@ def test_reverse():
     excepted = '"{[1000, 1]}-> {civil}-> {ayat}-> {python}-> {hi}-> NULL"'
     assert actual == excepted
 
+
+def test_kElement():
+    ll = LinkedList()
+    ll.insert_at_beginning(2)
+    ll.insert_at_beginning(8)
+    ll.insert_at_beginning(3)
+    ll.insert_at_beginning(1)
+    actual = ll.kElement(2)
+    expected = 3
+    assert actual == expected
+
+def test_kElement1():
+    ll = LinkedList()
+    ll.insert_at_beginning(2)
+    ll.insert_at_beginning(8)
+    ll.insert_at_beginning(3)
+    ll.insert_at_beginning(1)
+    actual = ll.kElement(0)
+    expected = 2
+    assert actual == expected
+
+
+# def test_kElement2():
+#     ll = LinkedList()
+#     ll.insert_at_beginning(2)
+#     ll.insert_at_beginning(8)
+#     ll.insert_at_beginning(3)
+#     ll.insert_at_beginning(1)
+#     actual = ll.kElement(6)
+#     expected = TypeError
+#     assert actual == expected
 #  updated 
