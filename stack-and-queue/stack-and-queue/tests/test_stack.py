@@ -1,7 +1,13 @@
 
 from stack_and_queue.stack import Stack , Node
+def test_push0():
+    stack=Stack()
+    stack.push(2)
+    actual = stack.__str__()
+    expected = '"{2}-> NULL"'
+    assert actual == expected
 
-def test_push():
+def test_push1():
     stack=Stack()
     stack.push(2)
     stack.push(5)
@@ -10,7 +16,7 @@ def test_push():
     expected = '"{7}-> {5}-> {2}-> NULL"'
     assert actual == expected
 
-def test_pop():
+def test_pop0():
     stack=Stack()
     stack.push(2)
     stack.push(5)
@@ -20,6 +26,33 @@ def test_pop():
     assert actual == expected
 
 def test_pop1():
+    stack=Stack()
+    stack.push(2)
+    stack.push(5)
+    stack.push(7)
+    stack.pop()
+    stack.pop()
+    stack.pop()
+    actual = stack.__str__()
+    expected = None
+    assert actual == expected
+
+def test_empty_stack ():
+    stack=Stack()
+    actual = stack.__str__()
+    expected = None
+    assert actual == expected
+
+# def test_empty_stack_raise_error ():
+#     stack=Stack()
+#     stack.peek()
+#     actual = stack.__str__()
+#     expected = None
+#     assert actual == expected
+
+
+
+def test_pop2():
     stack=Stack()
     stack.push(2)
     stack.push(5)
