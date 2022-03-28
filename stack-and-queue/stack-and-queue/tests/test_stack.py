@@ -1,5 +1,8 @@
 
-from stack_and_queue.stack import Stack , Node
+
+import queue
+from stack_and_queue.stack import Stack , Node , Pseudo_queue
+
 def test_push0():
     stack=Stack()
     stack.push(2)
@@ -96,3 +99,13 @@ def test_is_empty2():
     actual = stack.is_empty()
     expected = False
     assert actual == expected
+
+
+def test_enqueue():
+    queue= Pseudo_queue()
+    # stack1.enqueue(1)
+    # stack1.enqueue(2)
+    # stack1.enqueue(3)
+    # stack1.enqueue(4)
+    assert queue.enqueue('ayat') == 'ayat'
+    
