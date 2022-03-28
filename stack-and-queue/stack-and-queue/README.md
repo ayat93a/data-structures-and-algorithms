@@ -28,5 +28,5 @@ Last In First Out
 ![](bigO.PNG)
 
 ### White board 
-[Stack](./stack-algorithm.PNG)
-[Queue](./queue%20algo.PNG)
+- [Stack](./stack-algorithm.PNG)
+- [Queue](./queue%20algo.PNG)
