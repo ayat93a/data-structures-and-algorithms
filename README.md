@@ -7,5 +7,5 @@ List of Contents
 - [array-binary-search](./array-binary-search/)
 - [linked list](/Linked_List/README.md)
 - [linked-list-kth](./Kth.PNG)
-
+- [stack-queue-pseudo](./stack-and-queue/pesudo-queue.PNG)
  

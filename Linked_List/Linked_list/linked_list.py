@@ -1,9 +1,4 @@
 
-
-
-from tkinter import N
-
-
 class Node:
 
     def __init__(self, value = None , next =  None):
@@ -327,9 +322,11 @@ if __name__== "__main__":
     ll.insert_at_beginning(1)
     # ll.remove_by_value('civil')
     # ll.remove_by_value('python')
-
-    print(ll.kElement(6))
     print(ll)
+    ll.reverse()
+    print(ll)
+    # print(ll.kElement(2))
+    # print(ll)
     # actual = ll.__str__()
     # print(ll)
 
