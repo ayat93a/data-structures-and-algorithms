@@ -1,5 +1,8 @@
 
 
+from inspect import stack
+
+
 class Node :
 
         def __init__(self , value , next = None):
@@ -82,24 +85,38 @@ class Stack:
 
 class Pseudo_queue:
 
-            def __init__(self):
-                self.stack1 = Stack()
-                self.stack2 = Stack()
+        def __init__(self):
+            self.stack1 = Stack()
+            self.stack2 = Stack()
 
-            def enqueue(self , value ):
-                self.stack1.push(value)
+        def enqueue(self , value ):
+            self.stack1.push(value)
+            return self.stack1
+        
 
-            def dequeue(self):   
-                if not self.stack2.is_empty() :
-                    while not self.stack1.is_empty():
-                        self.stack2.push(self.stack1.pop())
+        def dequeue(self):  
+            if self.stack1.top == None and self.stack2.top == None :
+                raise '2 empty stacks , nothing to return'
+                return
 
-                if self.stack1.is_empty():
-                    self.stack1.pop()
+            if self.stack2.top == None:
+                itr = self.stack1.top
+                while itr :
+                    itr_value = self.stack1.pop()
+                    self.stack2.push(itr_value)
+                    itr = self.stack1.top.next
+                    valuee= self.stack2.top.value
+                    return valuee
 
 
-            def __str__(self):
-                return 
+        def __str__(self):
+                str_stack = ''
+                itr = self.stack1.top
+                while itr:
+                    str_stack  += '{' + str(itr.value) +'}' + '->' 
+                    itr=itr.next
+                str_stack += 'None'
+                return str_stack
     
 
 
@@ -111,9 +128,10 @@ if __name__ == '__main__':
         stack1.enqueue(2)
         stack1.enqueue(3)
         stack1.enqueue(7)
-        stack1.dequeue()
+        print(stack1.dequeue())
         print(stack1.__str__())
-        # stack.appened()
+        # # stack.appened()
+        # stack=Stack()
         # print(stack.pop())
         # print(stack.peek())
         # print(stack.is_empty())

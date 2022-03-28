@@ -100,12 +100,27 @@ def test_is_empty2():
     expected = False
     assert actual == expected
 
+def test_queue():
+    queue= Pseudo_queue()
+    actual = queue.__str__()
+    excepted = 'None'
+    assert actual == excepted
 
 def test_enqueue():
     queue= Pseudo_queue()
-    # stack1.enqueue(1)
-    # stack1.enqueue(2)
-    # stack1.enqueue(3)
-    # stack1.enqueue(4)
-    assert queue.enqueue('ayat') == 'ayat'
-    
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(7)
+    actual = queue.__str__()
+    expected = '{7}->{3}->{2}->None'
+    assert actual == expected
+
+def test_dequeue():
+    queue= Pseudo_queue()
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(7)
+    actual = queue.dequeue()
+    expected = 7
+    assert actual == expected
+
