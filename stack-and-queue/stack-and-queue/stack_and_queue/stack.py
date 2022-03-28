@@ -130,7 +130,7 @@ if __name__ == '__main__':
         stack1.enqueue(7)
         print(stack1.__str__())
         print(stack1.dequeue())
-        print(stack1.__str__())
+        # print(stack1.__str__())
         # # stack.appened()
         # stack=Stack()
         # print(stack.pop())
