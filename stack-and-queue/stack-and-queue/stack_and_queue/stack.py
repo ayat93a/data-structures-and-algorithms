@@ -107,7 +107,7 @@ class Pseudo_queue:
                     itr = itr.next
             
                 return f'dequeue value --> {self.stack2.pop()} '
-                   
+            
 
 
         def __str__(self):
