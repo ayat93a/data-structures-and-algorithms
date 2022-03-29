@@ -108,19 +108,21 @@ def test_queue():
 
 def test_enqueue():
     queue= Pseudo_queue()
-    queue.enqueue(2)
-    queue.enqueue(3)
-    queue.enqueue(7)
+    queue.enqueue(20)
+    queue.enqueue(15)
+    queue.enqueue(10)
+    queue.enqueue(5)
     actual = queue.__str__()
-    expected = '{7}->{3}->{2}->None'
+    expected = '{5}->{10}->{15}->{20}->None'
     assert actual == expected
 
 def test_dequeue():
     queue= Pseudo_queue()
-    queue.enqueue(2)
-    queue.enqueue(3)
-    queue.enqueue(7)
+    queue.enqueue(20)
+    queue.enqueue(15)
+    queue.enqueue(10)
+    queue.enqueue(5)
     actual = queue.dequeue()
-    expected = 7
+    expected = 'dequeue value --> 20 '
     assert actual == expected
 
