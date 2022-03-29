@@ -92,21 +92,22 @@ class Pseudo_queue:
         def enqueue(self , value ):
             self.stack1.push(value)
             return self.stack1
-        
+
 
         def dequeue(self):  
             if self.stack1.top == None and self.stack2.top == None :
                 raise '2 empty stacks , nothing to return'
-                return
 
             if self.stack2.top == None:
                 itr = self.stack1.top
-                while itr :
-                    itr_value = self.stack1.pop()
-                    self.stack2.push(itr_value)
-                    itr = self.stack1.top.next
-                    valuee= self.stack2.top.value
-                    return valuee
+                while itr:
+                    if itr.next == None:
+                        value = itr.value
+                        self.stack2.push(value)
+                    itr = itr.next
+            
+                return f'dequeue value --> {self.stack2.pop()} '
+                   
 
 
         def __str__(self):
@@ -125,11 +126,17 @@ if __name__ == '__main__':
 
         stack1 = Pseudo_queue()
         stack2 = Pseudo_queue()
-        stack1.enqueue(2)
-        stack1.enqueue(3)
-        stack1.enqueue(7)
+        stack1.enqueue(20)
+        print(stack1.__str__())
+        stack1.enqueue(15)
+        print(stack1.__str__())
+        stack1.enqueue(10)
+        # stack1.enqueue(5)
+        print(stack1.__str__())
+        stack1.enqueue(5)
         print(stack1.__str__())
         print(stack1.dequeue())
+        # print(stack1.__str__())
         # print(stack1.__str__())
         # # stack.appened()
         # stack=Stack()
@@ -140,10 +147,13 @@ if __name__ == '__main__':
         # stack1.create_queue()
         # print(stack2)
         # stack = Stack()
+        # stack.push(1)
         # stack.push(2)
         # stack.push(3)
-        # stack.push(7)
-        # stack.push(12)
+        # stack.push(4)
+        # stack.push(5)
+        # print(stack.pop())
+        # # stack.push(12)
         # print(stack)
         # stack.pop()
         # print(stack)
