@@ -20,7 +20,7 @@ class StackQueueAnimalShelter:
             itr.next = Node(animal , value,  None)
             return 
 
-    def dequeue(self , pref , value):
+    def dequeue_specific_one(self , pref , value):
 
         if pref == 'cat' or pref == 'dog':
             if self.front == None:
@@ -38,6 +38,23 @@ class StackQueueAnimalShelter:
                     return f'{node} : {value} is dequeued'
                 itr = itr.next
             # return 'Null'
+
+    def dequeue_first_one(self , pref):
+        if pref == 'cat' or pref == 'dog':
+            if self.front == None:
+                raise('empty')
+            if self.front.type == pref:
+                node = self.front.type
+                self.front = self.front.next
+                return f'{node}  is dequeued'
+            itr = self.front
+            while itr :
+                if itr.next.type == pref :
+                    node = itr.next.type
+                    valuee = itr.next.value
+                    itr.next = itr.next.next
+                    return f'{node}  is dequeued'
+                itr = itr.next
 
       
     def __str__(self):
@@ -65,8 +82,13 @@ if __name__ == '__main__':
     animal_shelter.enqueue('dog' , 'jojo' )
     animal_shelter.enqueue('dog' , 'jojo' )
     animal_shelter.enqueue('anything' , 'anyname')
-    # animal_shelter.enqueue(joj)
     print (animal_shelter.__str__())
-    print(animal_shelter.dequeue('dog' , 'jojo' ))
+    print(animal_shelter.dequeue_specific_one('dog' , 'jojo' ))
     print (animal_shelter.__str__())
-    print(animal_shelter.dequeue('cat' , 'soso' ))
+    print(animal_shelter.dequeue_specific_one('cat' , 'soso' ))
+    print (animal_shelter.__str__())
+    print(animal_shelter.dequeue_specific_one('camel' , 'soso' ))
+    print(animal_shelter.dequeue_first_one('cat'))
+    print (animal_shelter.__str__())
+    print(animal_shelter.dequeue_first_one('dog'))
+    print (animal_shelter.__str__())
