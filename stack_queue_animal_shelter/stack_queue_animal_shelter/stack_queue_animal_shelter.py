@@ -31,12 +31,15 @@ class StackQueueAnimalShelter:
                 return f'{node} : {value} is dequeued'
             itr = self.front
             while itr :
-                if itr.next.type == pref :
+                if itr.next.type == pref and itr.next.value == value:
                     node = itr.next.type
                     valuee = itr.next.value
                     itr.next = itr.next.next
-                    return f'{node} : {value} is dequeued'
+                    return f'{node} : {valuee} is dequeued'
+                elif itr.next.type == pref and itr.next.value != value or itr.next.type != pref and itr.next.value == value:
+                    itr = itr.next
                 itr = itr.next
+
             # return 'Null'
 
     def dequeue_first_one(self , pref):
@@ -80,15 +83,15 @@ if __name__ == '__main__':
     animal_shelter.enqueue('dog' , 'meme' )
     animal_shelter.enqueue('cat'  , 'soso')
     animal_shelter.enqueue('dog' , 'jojo' )
-    animal_shelter.enqueue('dog' , 'jojo' )
     animal_shelter.enqueue('anything' , 'anyname')
     print (animal_shelter.__str__())
     print(animal_shelter.dequeue_specific_one('dog' , 'jojo' ))
     print (animal_shelter.__str__())
-    print(animal_shelter.dequeue_specific_one('cat' , 'soso' ))
-    print (animal_shelter.__str__())
-    print(animal_shelter.dequeue_specific_one('camel' , 'soso' ))
     print(animal_shelter.dequeue_first_one('cat'))
     print (animal_shelter.__str__())
     print(animal_shelter.dequeue_first_one('dog'))
     print (animal_shelter.__str__())
+    print(animal_shelter.dequeue_specific_one('cat' , 'soso' ))
+    print (animal_shelter.__str__())
+    print(animal_shelter.dequeue_specific_one('camel' , 'soso' ))
+    
