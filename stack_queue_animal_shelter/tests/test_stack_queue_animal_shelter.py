@@ -31,7 +31,7 @@ def test_dequeue_specific_one():
     shelter.enqueue('anything' , 'anyname')
     shelter.dequeue_specific_one('dog' , 'jojo' )
     actual = shelter.__str__()
-    expected = '"{cat:lolo}-> {dog:meme}-> {cat:soso}-> {dog:jojo}-> {dog:jojo}-> NULL"'
+    expected = '"{cat:lolo}-> {dog:roro}-> {dog:meme}-> {cat:soso}-> {dog:jojo}-> NULL"'
     assert actual == expected
 
 
@@ -41,7 +41,6 @@ def test_dequeue_specific_one1():
     shelter.enqueue('dog' ,'roro')
     shelter.enqueue('dog' , 'meme' )
     shelter.enqueue('cat'  , 'soso')
-    shelter.enqueue('dog' , 'jojo' )
     shelter.enqueue('dog' , 'jojo' )
     shelter.enqueue('anything' , 'anyname')
     actual = shelter.dequeue_specific_one('dog' , 'jojo' )
