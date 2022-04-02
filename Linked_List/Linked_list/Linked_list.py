@@ -124,8 +124,6 @@ class LinkedList:
             count+=1
         return
 
-# <<<< TASK REQUIREMENT 
-# search about the first occurance of a specific value
     def includes (self , value):
         
             if self.head is None: 
