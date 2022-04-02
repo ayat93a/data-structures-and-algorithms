@@ -32,3 +32,4 @@ Methods i used to create and edit linked list :
 
 - [linked list - code](./linked_list.py)
 - [linked list - test](./test_linked_list.py)
+- [zip linked list](./zip_linked_list.PNG)

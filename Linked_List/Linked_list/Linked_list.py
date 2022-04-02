@@ -80,22 +80,6 @@ class LinkedList:
 
     #         return 
         
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # Removing element with a given index 
     def remove_at_index(self , index):
@@ -184,9 +168,33 @@ class LinkedList:
 
         # how to handle the case that when the give value_after is not exist?
         
-    def zip_lists(list1 , list2):
-        pass
+    def zip_lists(self , ll1 , ll2 ):
 
+            if ll1.head is None and ll2.head is None:
+                raise 'inputted linked lists must not be empty'
+            
+            else:    
+                ll1_current = ll1.head
+                ll2_current = ll2.head
+
+                while ll1_current  and ll2_current:
+                    
+                    ll1_next = ll1_current.next
+                    ll2_next = ll2_current.next
+                    ll2_current.next = ll1_next
+                    ll1_current.next = ll2_current
+                    ll1_current = ll1_next
+                    ll2_current = ll2_next
+                    ll2.head = ll2_current
+                if ll2_current:
+                    ll1.insert_at_end(ll2_current)
+                elif ll1_current:
+                    ll1.insert_at_end(ll1_current)    
+                
+            return ll1
+     
+            
+          
     
     def remove_by_value(self,value):
         
@@ -229,15 +237,20 @@ class LinkedList:
 
 if __name__== "__main__":
     ll=  LinkedList()
-    ll.insert_at_beginning(['engineer' , 1])
     ll.insert_at_beginning('civil')
     ll.insert_at_beginning('ayat')
+    ll2 = LinkedList()
+    ll2.insert_at_beginning('python' )
+    ll2.insert_at_beginning('engineer')
+    print(ll)
+    print(ll2)
+    print(ll.zip_lists(ll , ll2))
     # ll.insert_at_beginning('python')
     # ll.remove_at_index(2)
     # ll.insert_values('a')
     # ll.insert_at_beginning('engineer')
     # ll.insert_at_beginning('civil')
-    print(ll.__str__())
+    # print(ll.__str__())
     # ll = ['ayat' , 'barakat' , 'alkayed' ]
     # ll.get_length()
     # ll.__str__()
