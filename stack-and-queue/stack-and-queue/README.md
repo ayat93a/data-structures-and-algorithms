@@ -1,3 +1,19 @@
+
+# Challenge Summary
+- Create a new class called pseudo queue --> to create a queue from given 2 stacks 
+- given 2 stacks 
+- output queue 'FIFO'
+
+## Whiteboard Process
+[Whiteboard](./pesudo_queue.PNG)
+
+## Approach & Efficiency
+space : O(1)
+time : O(n)
+
+## Solution
+[code](./stack_and_queue/stack.py)
+
 # Stacks and Queues
 ## A stack is a data structure that consists of Nodes. Each Node references the next Node in the stack, but does not reference its previous.
 
@@ -30,3 +46,4 @@ Last In First Out
 ### White board 
 [Stack](./stack-algorithm.PNG)
 [Queue](./queue%20algo.PNG)
+
