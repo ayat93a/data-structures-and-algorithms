@@ -7,5 +7,8 @@ List of Contents
 - [array-binary-search](./array-binary-search/)
 - [linked list](/Linked_List/README.md)
 - [linked-list-kth](./Kth.PNG)
+- [zip link list]()
+- [stack and queue - implementation](stack-and-queue/stack-and-queue/README.md)
+
 
  
