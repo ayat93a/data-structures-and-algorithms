@@ -70,6 +70,7 @@ if __name__ == '__main__':
     queue.enqueue(3)
     queue.enqueue(4)
     queue.enqueue(5)
+    print(queue)
     print(queue.dequeue())
     print(queue)
     #queue.dequeue()
