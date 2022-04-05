@@ -1,6 +1,5 @@
 
-from itertools import count
-import queue
+from unittest import result
 
 
 class Node :
@@ -9,6 +8,47 @@ class Node :
         self.value = value
         self.next = next
 
+class Stack:
+
+        def __init__(self):
+            self.top = None
+
+        
+        def push(self , value):
+            if self.top == None:
+                self.top = Node (value , None)
+                return
+            node = Node(value , self.top)
+            self.top = node
+            return 
+
+        
+        def pop(self):
+
+            if self.top == None:
+                raise('empty stack')
+            itr = self.top
+            external_storage = self.top.value
+            self.top = itr.next  
+            return external_storage
+
+        def is_empty(self):
+            if self.top == None:
+                return True
+            return False
+
+        def __str__(self):
+            if self.top is None:
+                print('empty list')
+                return
+
+            itr= self.top
+            llstr= '"'
+            while itr :
+                llstr= llstr  +str(itr.value) + '-> ' 
+                itr=itr.next
+            llstr+='NULL"'
+            return llstr 
 
 class Queue:
 
@@ -41,79 +81,141 @@ class Queue:
             return True
         return False
 
-    def validate_brackets(self):
-        new_queue = Queue()
-        char = ['[' , ']' , '{' , '}' , '(' , ')']
+    def dequeue_by_value(self , value):
+        if self.front.value == value:
+            node = self.front.value
+            self.front = self.front.next
+            return 
         itr = self.front
-        for i in char :
-            while itr :
-                if itr.value == i :
-                    new_queue.enqueue(i)
-                itr = itr.next
-
-        itr = new_queue.front
         while itr :
-            if itr.value == '{':
-                while itr.next.value:
-                    if itr.next.value == '}':
-                        itr = itr.next
-                        itr.next = itr.next.next
-            if itr.value == '[':
-                while itr.next.value:
-                    if itr.next.value == ']':
-                        itr = itr.next
-                        itr.next = itr.next.next
-            if itr.value == '(':
-                while itr.next.value:
-                    if itr.next.value == ')':
-                        itr = itr.next
-                        itr.next = itr.next.next
-            else:
+                if itr.next.value == value:
+                    node = itr.next.value
+                    valuee = itr.next.value
+                    itr.next = itr.next.next
+                    return 
                 itr = itr.next
-        if new_queue.is_empty == True :
-            print('hi')
-        else:
-            print('hii')            
+        return 
 
 
+    def validate_brackets(self):
+
+        close_stack = Stack()
+        open_stack = Stack()
+        open_ = ['['  , '{'  , '('  ]
+        close = [ ']' ,  '}' ,  ')']
+        itr = self.front
+        while itr:
+            for i in open_:
+                if itr.value == i:
+                    open_stack.push(i)
+            itr = itr.next
 
 
+        itr = self.front
+        while itr:
+            for i in close:
+                if itr.value == i:
+                    close_stack.push(i)
+            itr = itr.next
 
-        # new_queue =  Queue()
-        # itr = self.front
-        # while itr:
-        #     if itr.value == '{' :
-        #         new_queue.enqueue('{')
-        #         while itr.next :
-        #             if itr.value == '}':
-        #                 new_queue.dequeue() 
-        #                 itr = itr.next 
-        #             else:
-        #                 itr = itr.next 
-        #     itr = itr.next
-        # return new_queue.is_empty()
-             
+        print(f' 1 {open_stack}')
+        print(f'1{close_stack}')   
+
+        current = open_stack.top
+        while current :
             
+            while current.value == '{':
+                while current.next:
+                    if current.next.value == '}':
+                        open_stack.pop()
+                        close_stack.pop()
+                    current.next= current.next.next
+                
+
+            if current.value == '(':
+                while current.next:
+                    if current.next.value == ')':
+                        open_stack.pop()
+                        close_stack.pop()
+                    current.next = current.next.next
+                
+            if current.value == '[':
+                while current.next:
+                    if current.next.value == ']':
+                        open_stack.pop()
+                        close_stack.pop()
+                    current.next = current.next.next
+                    
+            current = current.next  
+
+            # print(f'2{open_stack}')
+            # print(f'2{close_stack}') 
+            
+        if open_stack.is_empty == True and close_stack.is_empty == True :
+            result = True
+        else:
+            result = False
+
+        return result
 
 
+        # new_queue = Queue()
 
-        #         while itr.next :
-        #             if itr.next.value == '}':
-        #                 itr.value = ' '
-        #                 itr.next.value = ''
-        #                 return  True
-        #             if itr.next != None:
-        #                 itr = itr.next
+        # char = ['[' , ']' , '{' , '}' , '(' , ')']
         
-        #     itr = itr.next
         # itr = self.front
         # while itr:
-        #     if itr.value == '{' :
-        #         return False
+        #     for i in char :
+        #         if itr.value == i:
+        #             new_queue.enqueue(i)
         #     itr = itr.next
+        # print(new_queue)
+
+
+        # current = new_queue.front
+        # while current :
+        #     if current.value == '{':
+        #         while current.next:
+        #             if current.next.value == '}':
+        #                 new_queue.dequeue_by_value('{')
+        #                 new_queue.dequeue_by_value('}')
+        #             current.next = current.next.next  
+                
+            
+        #     if current.value == '(':
+        #         while current.next:
+        #             if current.next.value == ')':
+        #                 new_queue.dequeue_by_value('(')
+        #                 new_queue.dequeue_by_value(')')
+        #             current.next = current.next.next
+
+        #     if current.value == '[':
+        #         while current.next:
+        #             if current.next.value == ']':
+        #                 new_queue.dequeue_by_value('[')
+        #                 new_queue.dequeue_by_value(']')
+        #             current.next = current.next.next
+                    
+        #     current = current.next
+        #     print(new_queue)
+        # if new_queue.is_empty == True :
+        #     result = True
+        #     print('hi')
+        # else :
+        #     result = False
         
+        # return result
 
-
+        # new_queue = Stack()
+        # char = ['[' , ']' , '{' , '}' , '(' , ')']
+        
+        # itr = self.front
+        # while itr:
+        #     for i in char :
+        #         if itr.value == i:
+        #             new_queue.push(i)
+        #     itr = itr.next
+        # print(new_queue)
     def __str__(self):
             if self.front is None:
                 print('empty list')
@@ -130,7 +232,12 @@ class Queue:
 
 if __name__ == '__main__':
     word = Queue()
-    word.enqueue('{ayat}')
+    word.enqueue('{{aayat}}a')
     print(word.__str__())
-    print(word.validate_brackets)
+    print(word.validate_brackets())
+
     
+
+
+
+
