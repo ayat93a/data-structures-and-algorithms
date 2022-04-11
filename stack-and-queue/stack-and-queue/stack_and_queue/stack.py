@@ -1,5 +1,6 @@
 
 
+
 from inspect import stack
 
 
@@ -17,12 +18,14 @@ class Stack:
 
         
         def push(self , value):
+            node = Node(value)
             if self.top == None:
                 self.top = Node (value , None)
                 return
             node = Node(value , self.top)
             self.top = node
-            return 
+            return
+            
 
         
         def pop(self):
@@ -124,18 +127,19 @@ class Pseudo_queue:
 
 if __name__ == '__main__':
 
-        stack1 = Pseudo_queue()
-        stack2 = Pseudo_queue()
-        stack1.enqueue(20)
-        print(stack1.__str__())
-        stack1.enqueue(15)
-        print(stack1.__str__())
-        stack1.enqueue(10)
+        stack = Stack()
+        # stack1 = Pseudo_queue()
+        # stack2 = Pseudo_queue()
+        # stack1.enqueue(20)
+        # print(stack1.__str__())
+        # stack1.enqueue(15)
+        # print(stack1.__str__())
+        # stack1.enqueue(10)
+        # # stack1.enqueue(5)
+        # print(stack1.__str__())
         # stack1.enqueue(5)
-        print(stack1.__str__())
-        stack1.enqueue(5)
-        print(stack1.__str__())
-        print(stack1.dequeue())
+        # print(stack1.__str__())
+        # print(stack1.dequeue())
         # print(stack1.__str__())
         # print(stack1.__str__())
         # # stack.appened()
@@ -147,13 +151,13 @@ if __name__ == '__main__':
         # stack1.create_queue()
         # print(stack2)
         # stack = Stack()
-        # stack.push(1)
-        # stack.push(2)
-        # stack.push(3)
-        # stack.push(4)
-        # stack.push(5)
-        # print(stack.pop())
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+        stack.push(4)
+        stack.push(5)
+        print(stack.pop())
         # # stack.push(12)
         # print(stack)
         # stack.pop()
-        # print(stack)
+        print(stack)
