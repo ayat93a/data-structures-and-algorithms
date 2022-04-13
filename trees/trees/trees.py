@@ -78,6 +78,24 @@ class BinaryTree(TNode):
 
         _traverse(self.root)
 
+    def Max(self):
+        def _traverse(node):
+                max1 = self.root.value
+                max2 = self.root.value
+                if node:
+                    # print(node.value)
+                    if node.value > max1:
+                        max2= node.value
+                    else:
+                        max2 = max2
+                    if node.left:
+                        _traverse(node.left )
+                    if node.right:
+                        _traverse(node.right)
+                return max2
+       
+        return _traverse(self.root )
+        
 
 class Binary_search_tree(BinaryTree):
     def __init__(self):
@@ -120,7 +138,6 @@ class Binary_search_tree(BinaryTree):
             pointer.right = TNode(value)
 
     
-    
 
 
 
@@ -130,13 +147,19 @@ class Binary_search_tree(BinaryTree):
 
 if __name__ == '__main__':
 
-    node1 = TNode('A')
-    node2 = TNode('B')
-    node3 = TNode('C')
-    node4 = TNode('D')
-    node5 = TNode('E')
-    node6=TNode('F')
-    node7=TNode('G')
+    # node1 = TNode('A')
+    # node2 = TNode('B')
+    # node3 = TNode('C')
+    # node4 = TNode('D')
+    # node5 = TNode('E')
+    # node6=TNode('F')
+    # node7=TNode('G')
+    node1 = TNode(1)
+    node2 = TNode(2)
+    node3 = TNode(3)
+    node4 = TNode(4)
+    node5 = TNode(5)
+    node6=TNode(6)
     node1.left = node2
     node1.right = node3
     node2.left = node4
@@ -146,21 +169,22 @@ if __name__ == '__main__':
     
     tree = BinaryTree()
     tree.root = node1
+    print(tree.Max())
 
-    binary_search_tree = Binary_search_tree()
-    binary_search_tree.Add(20)
-    binary_search_tree.Add(5)
-    binary_search_tree.Add(30)
-    binary_search_tree.Add(1)
-    binary_search_tree.Add(15)
-    binary_search_tree.Add(9)
-    binary_search_tree.Add(12)
-    binary_search_tree.Add(25)
-    binary_search_tree.Add(40)
-    binary_search_tree.Add(7)
+    # binary_search_tree = Binary_search_tree()
+    # binary_search_tree.Add(20)
+    # binary_search_tree.Add(5)
+    # binary_search_tree.Add(30)
+    # binary_search_tree.Add(1)
+    # binary_search_tree.Add(15)
+    # binary_search_tree.Add(9)
+    # binary_search_tree.Add(12)
+    # binary_search_tree.Add(25)
+    # binary_search_tree.Add(40)
+    # binary_search_tree.Add(7)
 
     # binary_search_tree.Pre_order_rec()
-    print(binary_search_tree.Contains(1))
+    # print(binary_search_tree.Contains(1))
     # print(binary_search_tree.root.left.left.value)
     # tree.Pre_order_rec()
     # tree.In_order_rec()
