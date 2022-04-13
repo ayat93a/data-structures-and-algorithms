@@ -18,6 +18,7 @@ class Stack:
 
         
         def push(self , value):
+            
             node = Node(value)
             if self.top == None:
                 self.top = Node (value , None)
@@ -25,8 +26,7 @@ class Stack:
             node = Node(value , self.top)
             self.top = node
             return
-            
-
+      
         
         def pop(self):
 
@@ -36,6 +36,8 @@ class Stack:
             external_storage = self.top.value
             self.top = itr.next  
             return external_storage
+            
+           
 
         def peek(self):
             if self.top == None:
@@ -128,18 +130,18 @@ class Pseudo_queue:
 if __name__ == '__main__':
 
         stack = Stack()
-        # stack1 = Pseudo_queue()
-        # stack2 = Pseudo_queue()
-        # stack1.enqueue(20)
+        stack1 = Pseudo_queue()
+        stack2 = Pseudo_queue()
+        stack1.enqueue(20)
         # print(stack1.__str__())
-        # stack1.enqueue(15)
+        stack1.enqueue(15)
         # print(stack1.__str__())
-        # stack1.enqueue(10)
-        # # stack1.enqueue(5)
-        # print(stack1.__str__())
+        stack1.enqueue(10)
         # stack1.enqueue(5)
         # print(stack1.__str__())
-        # print(stack1.dequeue())
+        stack1.enqueue(5)
+        print(stack1.__str__())
+        print(stack1.dequeue())
         # print(stack1.__str__())
         # print(stack1.__str__())
         # # stack.appened()
@@ -151,13 +153,13 @@ if __name__ == '__main__':
         # stack1.create_queue()
         # print(stack2)
         # stack = Stack()
-        stack.push(1)
-        stack.push(2)
-        stack.push(3)
-        stack.push(4)
-        stack.push(5)
-        print(stack.pop())
-        # # stack.push(12)
+        # stack.push(1)
+        # stack.push(2)
+        # stack.push(3)
+        # stack.push(4)
+        # stack.push(5)
+        # print(stack.pop())
+        # # # stack.push(12)
+        # # print(stack)
+        # # stack.pop()
         # print(stack)
-        # stack.pop()
-        print(stack)
