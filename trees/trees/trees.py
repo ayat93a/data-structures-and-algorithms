@@ -1,5 +1,41 @@
 # from stack_and_queue import Queue
 # from stack_and_queue import Node , Queue
+class Node :
+
+    def __init__(self , value , next = None):
+        self.value = value
+        self.next = next
+
+
+class Queue:
+
+    def __init__(self):
+        self.front = None
+
+    def enqueue(self , value):
+        if self.front == None:
+            self.front= Node(value , None)
+            return
+        itr = self.front
+        while itr.next:
+            itr = itr.next
+        itr.next = Node(value , None)
+        return
+
+    def dequeue(self):
+
+        if self.front == None:
+            raise('empty stack')
+        itr = self.front
+        node = self.front.value
+        self.front= itr.next  
+        return node
+
+    def is_empty(self):
+        if self.front == None:
+            return True
+        return False
+
 
 class TNode:
     def __init__(self, value):
@@ -80,16 +116,19 @@ class BinaryTree(TNode):
 
     def Breadth_first(self ):
             queue = Queue()
+            my_list= []
             queue.enqueue(self.root)
             while not queue.is_empty(): 
                     itr = queue.dequeue()
-                    print(itr.value)
+                    if itr :
+                        my_list.append(itr.value)
+                    # print(itr.value)
                     if itr.left :
                         queue.enqueue(itr.left)
                     
                     if itr.right:
                         queue.enqueue(itr.right)
-                               
+            return my_list
 
     def Max(self):
         def _traverse(node):
@@ -182,7 +221,8 @@ if __name__ == '__main__':
     
     tree = BinaryTree()
     tree.root = node1
-    # print(tree.Breadth_first())
+    # tree.Breadth_first()
+    print(tree.Breadth_first())
     # print(tree.Max())
 
     # binary_search_tree = Binary_search_tree()
@@ -200,7 +240,7 @@ if __name__ == '__main__':
     # binary_search_tree.Pre_order_rec()
     # print(binary_search_tree.Contains(1))
     # print(binary_search_tree.root.left.left.value)
-    tree.Pre_order_rec()
+    # tree.Pre_order_rec()
     # tree.In_order_rec()
     # tree.Post_ord_rec()
 

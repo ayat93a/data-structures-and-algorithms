@@ -18,7 +18,7 @@ space big O notation >> O(1)
 time big O notation >> O(n)
 
 ## Solution
-[Code](./trees/trees.py)
-i have a problem in import queue from stack and queue -> actually its my mistake , i found that i have duplicatted that directory and when i remove a one copy of them the problem was started. 
-i cant make a test until that this problem will be solved 
-also when i make this problem i cant checkout from one branch to another 
+[Code](./trees/trees.py)\
+[test](./tests/test_trees.py)\
+i know that it was better to import Queue clas insted of copy it to tree file but i have a problem in import queue from stack and queue -> actually its my mistake , i found that i have duplicatted that directory and when i remove a one copy of them the problem was started. 
+*also when i make this problem i cant checkout from one branch to another* 
