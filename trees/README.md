@@ -19,5 +19,3 @@ time big O notation >> O(n)
 
 ## Solution
 [Code](./trees/trees.py)
-i have a problem in import queue from stack and queue -> actually its my mistake , i found that i have duplicatted that directory and when i remove a one copy of them the problem was started. 
-i cant make a test until that this problem will be solved 
