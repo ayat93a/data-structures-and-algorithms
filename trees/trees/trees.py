@@ -1,6 +1,5 @@
-
-from tkinter import N
-from stack_and_queue.queue import Queue
+# from stack_and_queue import Queue
+# from stack_and_queue import Node , Queue
 
 class TNode:
     def __init__(self, value):
@@ -79,37 +78,18 @@ class BinaryTree(TNode):
         _traverse(self.root)
 
 
-    def Breadth_first(self):
-        queue = Queue()
-        def _traverse(node):
-            # if node :
-            itr = self.root
-            while itr :
-                    
-                    queue.enqueue(itr.value)
+    def Breadth_first(self ):
+            queue = Queue()
+            queue.enqueue(self.root)
+            while not queue.is_empty(): 
+                    itr = queue.dequeue()
+                    print(itr.value)
                     if itr.left :
-                        queue.enqueue(itr.left.value)
+                        queue.enqueue(itr.left)
+                    
                     if itr.right:
-                        queue.enqueue(itr.right.value)
-                    
-                    # if itr.left: 
-                    #     if itr.left.left:
-                    #         itr = itr.left.left
-                    #         _traverse(itr)
-                    #     elif itr.left.right:
-                    #         _traverse(itr)
-        return _traverse(self.root)
-                    
-                # print(node.value)
-              
-                # _traverse(node.left)
-                # _traverse(node.right)
-                    
-                # if node.left:
-                #      _traverse(node.left)
-        # _traverse(self.root)
-         
-                
+                        queue.enqueue(itr.right)
+                               
 
     def Max(self):
         def _traverse(node):
@@ -202,7 +182,7 @@ if __name__ == '__main__':
     
     tree = BinaryTree()
     tree.root = node1
-    print(tree.Breadth_first().__str__())
+    # print(tree.Breadth_first())
     # print(tree.Max())
 
     # binary_search_tree = Binary_search_tree()
@@ -220,7 +200,7 @@ if __name__ == '__main__':
     # binary_search_tree.Pre_order_rec()
     # print(binary_search_tree.Contains(1))
     # print(binary_search_tree.root.left.left.value)
-    # tree.Pre_order_rec()
+    tree.Pre_order_rec()
     # tree.In_order_rec()
     # tree.Post_ord_rec()
 
