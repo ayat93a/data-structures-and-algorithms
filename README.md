@@ -10,4 +10,7 @@ List of Contents
 - [stack-queue implementation](stack-and-queue/stack-and-queue/README.md)
 - [stack-queue-pseudo](stack-and-queue/stack-and-queue/README.md)
 - [Animal shelter](./stack_queue_animal_shelter/README.md)
-
+- [bracket]
+- [trees implementation]
+- [trees - max]
+- [ trees - BSF]
